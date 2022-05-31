@@ -1,11 +1,15 @@
-import { Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Category from "./components/Explore/Category/category";
 import ExplorePage from "./components/Explore/Explore";
 
 function App() {
   return (
     <div>
       <Router>
-       <Route pathname="/" element={<ExplorePage/>}/>
+        <Routes>
+         <Route path="/" element={<ExplorePage/>}/>
+         <Route path="/category:id" element={<Category/>}/>
+        </Routes>
       </Router>
     </div>
   );

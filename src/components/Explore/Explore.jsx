@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Category from "./Category/category"
 
 function ExplorePage() {
@@ -5,7 +6,7 @@ function ExplorePage() {
   
   function insertCategories(){
     return categoriesArr.map((category,idx)=>{
-      return <Category categoryData={category} key={idx}/>
+      return <Link to='/category'><Category className='category' categoryData={category} key={idx}/></Link>
     })
   }
   return ( 
