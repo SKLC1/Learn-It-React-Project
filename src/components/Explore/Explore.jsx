@@ -6,7 +6,7 @@ function ExplorePage() {
   
   function insertCategories(){
     return categoriesArr.map((category,idx)=>{
-      return <Link to={`/category:${category}`}><div className='category' key={idx}>{category}</div></Link>
+      return <Link to={`/category${category}`}><div className='category' key={idx}>{category}</div></Link>
     })
   }
   return ( 

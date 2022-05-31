@@ -1,9 +1,9 @@
 
 
-function SubCategory() {
+function SubCategory(props) {
   return ( 
     <div>
-      
+      {props.sub.subCategory}
     </div>
   );
 }
