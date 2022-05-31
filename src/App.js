@@ -8,7 +8,7 @@ function App() {
       <Router>
         <Routes>
          <Route path="/" element={<ExplorePage/>}/>
-         <Route path="/category:id" element={<Category/>}/>
+         <Route path="/category:chosenCategory" element={<Category/>}/>
         </Routes>
       </Router>
     </div>
