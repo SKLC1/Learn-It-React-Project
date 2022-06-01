@@ -1,9 +1,10 @@
-
+import { useParams } from "react-router-dom";
 
 function SubCategory(props) {
+  const { chosenSubCategory } = useParams();
   return ( 
     <div>
-      {props.sub.subCategory}
+      {chosenSubCategory}
     </div>
   );
 }

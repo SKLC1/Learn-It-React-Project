@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SubCategory from "../SubCategory/subCategory";
+
 
 function Category(props) {
   const [subCategoriesArr, setSubCategoriesArr] = useState([])
@@ -22,14 +23,14 @@ function Category(props) {
         return post
       }
     })
-    console.log(newSubCategoriesArr)
     setSubCategoriesArr(newSubCategoriesArr)
   }
   
   function insertSubcategories(){
     console.log(subCategoriesArr)
-    subCategoriesArr.map((subcategory)=>{
-      return <div>{subcategory.user}</div>
+    return subCategoriesArr.map((subcategory)=>{
+        return <Link to={`/subcategory${subcategory.subCategory}`}><div className='subcategory' key={subcategory.id}>
+          {subcategory.subCategory}</div></Link>
     })
   }
   
@@ -37,10 +38,7 @@ function Category(props) {
   return ( 
     <>
       <div>this is {chosenCategory} category</div>
-      <div>{subCategoriesArr.map((subcategoryObj)=>{
-        return <SubCategory sub={subcategoryObj} key={subcategoryObj.id}/>
-        })}</div>
-      {/* not wotking with callback ? */}
+      <div>{insertSubcategories()}</div>
     </>
    );
 }
