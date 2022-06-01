@@ -25,18 +25,12 @@ function ExplorePage() {
        if(!filterCategoriesArr.includes(el.category)) filterCategoriesArr.push(el.category)
      })
     return filterCategoriesArr.map((category,idx)=>{
-        return <Link to={`/category${category}`}><div className='category' key={idx}>{category}</div></Link>
+        return <Link key={idx} to={`/category${category}`}><div className='category'>{category}</div></Link>
     })
   }
-  // function insertCategories(){
-  //   const categoriesArr = []
-    
-  //   return categoriesArr.map((category,idx)=>{
-  //     return <Link to={`/category${category}`}><div className='category' key={idx}>{category}</div></Link>
-  //   })
-  // }
   return ( 
     <>
+      <h1>Explore Page</h1>
       <div className="categories-container">{insertCategories()}</div>
     </>
    )

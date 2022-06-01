@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Video from "../../Feed/Video/Video";
+import './subCategories.css'
 
 function SubCategory(props) {
   const { chosenSubCategory } = useParams();
@@ -27,9 +28,11 @@ function SubCategory(props) {
   } 
 
   return ( 
-    <div>
-      {chosenSubCategory}
+    <div className='explore-page'>
+      <p>{chosenSubCategory} Feed</p> 
+      <div className="videos-container">
       {insertVideos()}
+      </div>
     </div>
   );
 }
