@@ -17,7 +17,6 @@ function Category(props) {
   
   async function getSubcategoryData(){
     const {data} = await axios.get('https://628f71e60e69410599dc83b9.mockapi.io/LearnItAPI')
-    console.log(data);
     const newSubCategoriesArr = data.filter(post=>{
       if(post.category === chosenCategory){
         return post
@@ -27,17 +26,20 @@ function Category(props) {
   }
   
   function insertSubcategories(){
-    console.log(subCategoriesArr)
-    return subCategoriesArr.map((subcategory)=>{
-        return <Link to={`/subcategory${subcategory.subCategory}`}><div className='subcategory' key={subcategory.id}>
-          {subcategory.subCategory}</div></Link>
+    const filterSubCategoriesArr = [];
+     subCategoriesArr.forEach(el => {
+       if(!filterSubCategoriesArr.includes(el.subCategory)) filterSubCategoriesArr.push(el.subCategory)
+     })
+    return filterSubCategoriesArr.map((subcategory)=>{
+        return <Link key={subcategory} to={`/subcategory${subcategory}`}><div className='subcategory' >
+          {subcategory}</div></Link>
     })
   }
   
 
   return ( 
     <>
-      <div>this is {chosenCategory} category</div>
+      <div>{chosenCategory}</div>
       <div>{insertSubcategories()}</div>
     </>
    );
