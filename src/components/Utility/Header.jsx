@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './utility.css'
 
 function Header() {
@@ -8,7 +9,7 @@ function Header() {
           Logo
         </div>
         <div>
-          Login/account page
+          <Link to='/login'>Login/account page</Link>
         </div>
       </div>
     </div>
