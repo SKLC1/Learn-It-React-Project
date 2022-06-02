@@ -2,12 +2,12 @@ import { useRef, useState } from 'react';
 import './video.css'
 
 function Video({videoURL}) {
-  const [play,setPlay] = useState(false)
+  const [playing,setPlaying] = useState(false)
    const videoRef = useRef(null)
 
    function onVideoPress(){
-     play?videoRef.current.play():videoRef.current.pause();
-     setPlay(!play)
+     playing?videoRef.current.play():videoRef.current.pause();
+     setPlaying(!playing)
    }
 
   return ( 

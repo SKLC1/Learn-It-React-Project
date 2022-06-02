@@ -1,0 +1,11 @@
+
+
+.subcategory{
+  background-color: blue;
+  border-radius: 15px;
+  margin: 0.3rem;
+  padding: 1rem;
+  width: 30%;
+  align-items: center;
+  text-align: center;
+}
