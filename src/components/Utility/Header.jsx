@@ -5,10 +5,10 @@ function Header() {
     <div>
       <div className="header-cont">
         <div>
-          Login
+          Logo
         </div>
         <div>
-          teacher login
+          Login/account page
         </div>
       </div>
     </div>
