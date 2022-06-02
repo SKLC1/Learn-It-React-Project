@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
+import Header from "../Utility/Header";
 import './Explore.css'
 
 
@@ -18,7 +19,6 @@ function ExplorePage() {
     const {data} = await axios.get('https://628f71e60e69410599dc83b9.mockapi.io/LearnItAPI')
     setCategoriesArr(data)
   }
-  
 
   function insertCategories(){
     const filterCategoriesArr = [];
@@ -31,7 +31,7 @@ function ExplorePage() {
   }
   return ( 
     <>
-      <h1>Explore Page</h1>
+      <Header/>
       <div className="categories-container">{insertCategories()}</div>
     </>
    )
