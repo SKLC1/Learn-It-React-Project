@@ -11,12 +11,7 @@ function Video({videoURL}) {
    }
 
   return ( 
-      <video src={videoURL} playsInline=""
-      ref={videoRef}
-      onClick={onVideoPress}
-      loop 
-      muted 
-      autoPlay="autoplay" className="video"></video>
+    <video src={videoURL}></video>
    );
 }
 
