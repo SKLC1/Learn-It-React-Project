@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import Header from "../Utility/Header";
 import './Explore.css'
+import { collection, doc, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 
 
 function ExplorePage() {
   const [categoriesArr, setCategoriesArr] = useState([])
+  const dataCollectionRef = collection(db, 'Videos')
 
   useEffect(()=>{
     getCategoryData()
@@ -16,10 +19,10 @@ function ExplorePage() {
   },[categoriesArr])
 
   async function getCategoryData(){
-    const {data} = await axios.get('https://628f71e60e69410599dc83b9.mockapi.io/LearnItAPI')
-    setCategoriesArr(data)
+    const data = await getDocs(dataCollectionRef)
+    setCategoriesArr(data.docs.map((doc)=>({...doc.data(), id: doc.id})))
+    console.log(categoriesArr);
   }
-
   function insertCategories(){
     const filterCategoriesArr = [];
      categoriesArr.forEach(el => {

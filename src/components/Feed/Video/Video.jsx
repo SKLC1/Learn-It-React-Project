@@ -11,7 +11,7 @@ function Video({videoURL}) {
    }
 
   return ( 
-    <video ref={videoRef} className='video' controls autoPlay type={'video/mp4'.toString()} src='https://firebasestorage.googleapis.com/v0/b/learnit-8b2cb.appspot.com/o/demoVideos%2FjavaScriptClosoursVideo.mp4?alt=media&token=6d969d6c-0fd8-4879-acae-86ccc4a15aca'></video>
+    <video ref={videoRef} muted className='video' controls autoPlay type={'video/mp4'.toString()} src={videoURL}></video>
     );
 }
 
