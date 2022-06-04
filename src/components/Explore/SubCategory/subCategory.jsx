@@ -22,7 +22,15 @@ function SubCategory(props) {
     console.log(videosData)
   }
   function insertVideos() {
-    
+    const relevantVideosArr = []
+      videosData.forEach(post=> {
+        if (post.subCategory === chosenSubCategory) {
+          relevantVideosArr.push(post.videoURL)
+        }
+      });
+      return relevantVideosArr.map((videoURL,idx)=>{
+        return <Video videoURL={videoURL} key={idx}/>
+      })
   }
 
   return ( 
@@ -36,19 +44,3 @@ function SubCategory(props) {
 }
 
 export default SubCategory;
-// ? previous code
-// async function getVideos() {
-//   const {data} = await axios.get('https://628f71e60e69410599dc83b9.mockapi.io/LearnItAPI')
-//   setVideosData(data)
-// }
-// function insertVideos(){
-//   const relevantVideosArr = []
-//   videosData.forEach(post=> {
-//     if (post.subCategory === chosenSubCategory) {
-//       relevantVideosArr.push(post.videoURL)
-//     }
-//   });
-//   return relevantVideosArr.map((videoURL,idx)=>{
-//     return <Video videoURL={videoURL} key={idx}/>
-//   })
-// } 
