@@ -5,13 +5,21 @@ import './utility.css'
 
 function Header() {
   const currentUser = useContext(UserContext)
+  function userInfo(currentUser){
+    return(
+      <div className='flex'>
+        <img className='avatar' src={currentUser.photoURL} ></img>
+        <div>{currentUser.displayName}</div>
+      </div>
+    )
+  }
   return ( 
     <div>
       <div className="header-cont">
         <div>
           Logo
         </div>
-        {currentUser?currentUser.displayName:<div><Link to='/login'>Login/account page</Link></div>}
+        {currentUser?userInfo(currentUser):<div><Link to='/login'>Login/account page</Link></div>}
       </div>
     </div>
    );

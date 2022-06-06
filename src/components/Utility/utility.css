@@ -5,3 +5,7 @@
   align-items: center;
   justify-content: space-around;
 }
+.avatar{
+  width: 20%;
+  border-radius: 50%;
+}
