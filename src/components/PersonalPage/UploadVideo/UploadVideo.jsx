@@ -1,14 +1,16 @@
 import { async } from "@firebase/util";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { app, db, storage } from "../../../firebase/firebase";
+import { UserContext } from "../../UserContext/UserContext";
 
 function UploadVideo() {
   const [progress, setProgress] = useState(0)
   const [fileUrl, setFileUrl] = useState("")
   const [category, setCategory] = useState()
   const [subCategory, setSubCategory] = useState()
+  const currentUser = useContext(UserContext)
   function formHandler(e){
     e.preventDefault();
     const file = e.target[2].files[0];
@@ -34,7 +36,7 @@ function UploadVideo() {
   }
   async function addToDataBase(url) {
     const collectionRef = collection(db,'Videos');
-    const payload = {category: [category], subCategory: [subCategory], user: '', videoURL: [url]} 
+    const payload = {category: [category], subCategory: [subCategory], user: [currentUser], videoURL: [url]} 
     const docRef = await addDoc(collectionRef, payload)
     console.log(docRef.id)
   }
