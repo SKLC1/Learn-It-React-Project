@@ -10,12 +10,14 @@ import { db } from "../../firebase/firebase";
 function ExplorePage() {
   const [categoriesArr, setCategoriesArr] = useState([])
   const dataCollectionRef = collection(db, 'Videos')
+  const [isLoading,setIsLoading] = useState(true)
 
   useEffect(()=>{
     getCategoryData()
   },[])
   useEffect(()=>{
     insertCategories()
+    setIsLoading(false)
   },[categoriesArr])
 
   async function getCategoryData(){
@@ -25,11 +27,11 @@ function ExplorePage() {
   }
   function insertCategories(){
     const filterCategoriesArr = [];
-     categoriesArr.forEach(el => {
-       if(!filterCategoriesArr.includes(el.category)) filterCategoriesArr.push(el.category)
-     })
+    categoriesArr.forEach(el => {
+      if(!filterCategoriesArr.includes(el.category)) filterCategoriesArr.push(el.category)
+    })
     return filterCategoriesArr.map((category,idx)=>{
-        return <Link key={idx} to={`/category${category}`}><div className='category bn632-hover bn22'>{category}</div></Link>
+      return <Link key={idx} to={`/category${category}`}><div className='category bn632-hover bn22'>{category}</div></Link>
     })
   }
   return ( 
@@ -41,7 +43,9 @@ function ExplorePage() {
          this will be top picks cont
         <div className="divider"></div>
         <h4>Find More</h4>
-      <div className="categories-container">{insertCategories()}</div>
+         <div className={isLoading?"flex":"categories-container"}>
+          {isLoading?<div className="lds-dual-ring flex"></div>:insertCategories()}
+         </div>
       </div>
     </>
    )
