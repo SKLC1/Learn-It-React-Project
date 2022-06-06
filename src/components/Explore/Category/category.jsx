@@ -12,6 +12,7 @@ function Category(props) {
   const [subCategoriesArr, setSubCategoriesArr] = useState([])
   const { chosenCategory } = useParams();
   const videoCollectionRef = collection(db, 'Videos')
+  const [isLoading,setIsLoading] = useState(true)
 
 
   useEffect(()=>{
@@ -19,6 +20,7 @@ function Category(props) {
   },[])
   useEffect(()=>{
     insertSubcategories()
+    setIsLoading(false)
   },[subCategoriesArr])
   
   async function getSubcategoryData(){
@@ -43,7 +45,9 @@ function Category(props) {
     <>
     <Header/>
       <div>{chosenCategory}</div>
-      <div className="subcategory-container">{insertSubcategories()}</div>
+      <div className="subcategory-container">
+        {isLoading?<div className="lds-dual-ring"></div>:insertSubcategories()}
+        </div>
     </>
    );
 }

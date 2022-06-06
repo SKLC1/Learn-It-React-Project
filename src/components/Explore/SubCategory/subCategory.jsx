@@ -11,6 +11,7 @@ import './subCategories.css'
 function SubCategory(props) {
   const { chosenSubCategory } = useParams();
   const [videosData,setVideosData] = useState([])
+  const [isLoading,setIsLoading] = useState(true)
   const videoCollectionRef = collection(db, 'Videos')
   
   useEffect(()=>{
@@ -21,17 +22,18 @@ function SubCategory(props) {
     const data = await getDocs(videoCollectionRef)
     setVideosData(data.docs.map((doc)=>({...doc.data(), id: doc.id})))
     console.log(videosData)
+    setIsLoading(false)
   }
   function insertVideos() {
     const relevantVideosArr = []
-      videosData.forEach(post=> {
-        if (post.subCategory === chosenSubCategory) {
-          relevantVideosArr.push(post.videoURL)
-        }
-      });
-      return relevantVideosArr.map((videoURL,idx)=>{
-        return <Video videoURL={videoURL} key={idx}/>
-      })
+    videosData.forEach(post=> {
+      if (post.subCategory === chosenSubCategory) {
+        relevantVideosArr.push(post.videoURL)
+      }
+    });
+    return relevantVideosArr.map((videoURL,idx)=>{
+      return <Video videoURL={videoURL} key={idx}/>
+    })
   }
 
   return ( 
@@ -39,7 +41,7 @@ function SubCategory(props) {
       <p className="feed-header">{chosenSubCategory} Feed</p> 
       <div className="feed-container">
        <div className="videos-container">
-       {insertVideos()}
+       {isLoading?<div className="lds-dual-ring"></div>:insertVideos()}
        </div>
       </div>
     </div>

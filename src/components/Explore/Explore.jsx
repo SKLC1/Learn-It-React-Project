@@ -17,13 +17,13 @@ function ExplorePage() {
   },[])
   useEffect(()=>{
     insertCategories()
-    setIsLoading(false)
   },[categoriesArr])
-
+  
   async function getCategoryData(){
     const data = await getDocs(dataCollectionRef)
     setCategoriesArr(data.docs.map((doc)=>({...doc.data(), id: doc.id})))
     console.log(categoriesArr);
+    setIsLoading(false)
   }
   function insertCategories(){
     const filterCategoriesArr = [];
