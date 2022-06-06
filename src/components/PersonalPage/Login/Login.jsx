@@ -1,21 +1,15 @@
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { app, authentication } from "../../../firebase/firebase";
+import { UserContext } from "../../UserContext/UserContext";
 
 function Login() {
-  const [currentUser, setCurrentUser] = useState()
-
+  const currentUser = useContext(UserContext)
   const provider = new GoogleAuthProvider();
   function googleLogin(){
     signInWithPopup(authentication,provider)
   }
-  useEffect(()=>{
-    getAuth().onAuthStateChanged((user)=>{
-      setCurrentUser(user)
-    })
-  },[])
-  
   return ( 
     <div>
       { currentUser &&<p>logged in as {currentUser.displayName}</p>}
