@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 function Login() {
@@ -8,7 +9,8 @@ function Login() {
        <input type="text" />
        <button>Login</button>
       </div>
-      <div>Dont have an account? <p>Create an account</p></div>
+      <div>Dont have an account?</div> 
+      <Link to="/signup">Create an account</Link>
     </div>
    );
 }
