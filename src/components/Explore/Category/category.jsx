@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import './category.css'
+import Header from "../../Utility/Header";
 
 
 function Category(props) {
@@ -39,6 +40,7 @@ function Category(props) {
 
   return ( 
     <>
+    <Header/>
       <div>{chosenCategory}</div>
       <div>{insertSubcategories()}</div>
     </>
