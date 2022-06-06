@@ -14,7 +14,7 @@ function Login() {
   return ( 
     <div>
       { currentUser &&<p>logged in as {currentUser.displayName}</p>}
-      <div className="flexCol">
+      <div className="flexCol login-cont">
         <label>Email:</label>
        <input type="text" />
         <label>Password:</label>

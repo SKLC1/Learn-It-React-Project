@@ -1,11 +1,19 @@
 
 
 .subcategory{
-  background-color: blue;
+  width: 15rem;
+  max-width: 700px;
+  /* background-color: blue; */
   border-radius: 15px;
   margin: 0.3rem;
   padding: 1rem;
-  width: 30%;
   align-items: center;
   text-align: center;
+}
+.subcategory-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

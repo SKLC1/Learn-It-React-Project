@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
-import './category.css'
 import Header from "../../Utility/Header";
+import './category.css'
+import '../Explore.css'
 
 
 function Category(props) {
@@ -32,7 +33,7 @@ function Category(props) {
         }
      })
     return filterSubCategoriesArr.map((subcategory)=>{
-        return <Link key={subcategory} to={`/subcategory${subcategory}`}><div className='subcategory' >
+        return <Link key={subcategory} to={`/subcategory${subcategory}`}><div className='subcategory bn632-hover bn22'>
           {subcategory}</div></Link>
     })
   }
@@ -42,7 +43,7 @@ function Category(props) {
     <>
     <Header/>
       <div>{chosenCategory}</div>
-      <div>{insertSubcategories()}</div>
+      <div className="subcategory-container">{insertSubcategories()}</div>
     </>
    );
 }

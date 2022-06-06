@@ -1,9 +1,19 @@
 
 
 .header-cont{
+  color:  #fff;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
+    background-image: linear-gradient(
+      to right,
+      /* #0ba360, */
+      #3cba92,
+      #30dd8a,
+      #2bb673
+    );
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
 .avatar{
   width: 20%;

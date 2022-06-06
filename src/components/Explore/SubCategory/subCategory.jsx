@@ -2,9 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Video from "../../Feed/Video/Video";
-import './subCategories.css'
 import { collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
+import './subCategories.css'
+
 
 
 function SubCategory(props) {
@@ -35,9 +36,11 @@ function SubCategory(props) {
 
   return ( 
     <div className='explore-page'>
-      <p>{chosenSubCategory} Feed</p> 
-      <div className="videos-container">
-      {insertVideos()}
+      <p className="feed-header">{chosenSubCategory} Feed</p> 
+      <div className="feed-container">
+       <div className="videos-container">
+       {insertVideos()}
+       </div>
       </div>
     </div>
   );

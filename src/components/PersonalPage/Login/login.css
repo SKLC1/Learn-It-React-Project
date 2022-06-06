@@ -1,4 +1,10 @@
 
+.login-cont{
+  width: fit-content;
+  border: black solid 2px;
+  border-radius: 15px;
+  padding: 3%;
+}
 
 .loginBtn{
   width: 70%;
