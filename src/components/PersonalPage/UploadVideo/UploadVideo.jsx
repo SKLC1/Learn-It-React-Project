@@ -17,7 +17,7 @@ function UploadVideo() {
     uploadFiles(file)
   }
 
-  function uploadFiles(file){
+  async function uploadFiles(file){
     if(!file) return;
     const storageRef = ref(storage, `/demoVideos/${file.name}`)
     const uploadTask = uploadBytesResumable(storageRef, file)
@@ -26,19 +26,18 @@ function UploadVideo() {
       const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
       setProgress(prog)
     }, (err) => console.log(err), 
-    ()=> {
-      getDownloadURL(uploadTask.snapshot.ref)
-      .then((url)=>{
+    async()=> {
+        const url = await getDownloadURL(uploadTask.snapshot.ref)
         setFileUrl(url)
         console.log(fileUrl)
-        addToDataBase(fileUrl)
+        addToDataBase()
       })
-    })
+      console.log(fileUrl)
   }
-  async function addToDataBase(url) {
+  async function addToDataBase() {
     const uploadingUser = currentUser.displayName;
     const collectionRef = collection(db,'Videos');
-    const payload = {category: [category], subCategory: [subCategory], user: [uploadingUser], videoURL: [url]} 
+    const payload = {category: category, subCategory: subCategory, user: uploadingUser, videoURL: fileUrl} 
     const docRef = await addDoc(collectionRef, payload)
     console.log(docRef.id)
   }
