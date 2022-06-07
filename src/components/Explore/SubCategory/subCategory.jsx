@@ -28,11 +28,11 @@ function SubCategory(props) {
     const relevantVideosArr = []
     videosData.forEach(post=> {
       if (post.subCategory === chosenSubCategory) {
-        relevantVideosArr.push(post.videoURL)
+        relevantVideosArr.push(post)
       }
     });
-    return relevantVideosArr.map((videoURL,idx)=>{
-      return <Video videoURL={videoURL} key={idx}/>
+    return relevantVideosArr.map((post,idx)=>{
+      return <Video post={post} videoURL={post.videoURL} key={idx}/>
     })
   }
 

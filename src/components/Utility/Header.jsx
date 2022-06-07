@@ -20,7 +20,7 @@ function Header() {
     <div>
       <div className="header-cont">
         <div>
-          Logo
+          RecApp
         </div>
         {currentUser?userInfo(currentUser):<div><Link to='/login'>Login/account page</Link></div>}
       </div>

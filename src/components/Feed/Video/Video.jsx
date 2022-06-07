@@ -11,7 +11,10 @@ function Video({videoURL}) {
    }
 
   return ( 
-    <video ref={videoRef} muted className='video' controls autoPlay type={'video/mp4'.toString()} src={videoURL}></video>
+    <div className='video' >
+    <video ref={videoRef} muted controls autoPlay type={'video/mp4'.toString()} src={videoURL}></video>
+    <div>{}</div>
+    </div>
   );
 }
 
