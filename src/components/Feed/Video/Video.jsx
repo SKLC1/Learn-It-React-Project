@@ -32,8 +32,13 @@ function Video({post}) {
        console.log(e)
      }
      function handleLocalLike(){
-       setLiked(true)
+       setLiked(!liked)
      }
+     if (liked){
+       console.log(post.id)
+       const newLikedCount = [...post.likes].filter(liker=>liker!==currentUser.displayName)
+      updateDoc(docRef,{likes: newLikedCount}) 
+     } 
   } 
 
   return ( 
