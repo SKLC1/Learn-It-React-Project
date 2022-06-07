@@ -9,6 +9,7 @@ function UploadVideo() {
   const [progress, setProgress] = useState(0)
   const [fileUrl, setFileUrl] = useState("")
   const [category, setCategory] = useState()
+  const [description, setDescription] = useState()
   const [subCategory, setSubCategory] = useState()
   const currentUser = useContext(UserContext)
   function formHandler(e){
@@ -40,7 +41,13 @@ function UploadVideo() {
   async function addToDataBase() {
     const uploadingUser = currentUser.displayName;
     const collectionRef = collection(db,'Videos');
-    const payload = {category: category, subCategory: subCategory, user: uploadingUser, videoURL: fileUrl} 
+    const payload = {
+      category: category, 
+      subCategory: subCategory, 
+      user: uploadingUser, 
+      videoURL: fileUrl,
+      description: description,
+    } 
     const docRef = await addDoc(collectionRef, payload)
     console.log(docRef.id)
   }
@@ -52,6 +59,8 @@ function UploadVideo() {
        <input type='text' onChange={(e)=>setCategory(e.target.value)}/>
         <label>SubCategory:</label>
        <input type='text' onChange={(e)=>setSubCategory(e.target.value)}/>
+        <label>Description:</label>
+       <input type='text' onChange={(e)=>setDescription(e.target.value)}/>
        <input type='file'/>
        <button type="submit">Upload</button>
       </form>

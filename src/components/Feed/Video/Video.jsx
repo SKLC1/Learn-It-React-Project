@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import './video.css'
 
-function Video({videoURL}) {
+function Video({post}) {
   const [playing,setPlaying] = useState(false)
    const videoRef = useRef(null)
 
@@ -12,8 +12,11 @@ function Video({videoURL}) {
 
   return ( 
     <div className='video' >
-    <video ref={videoRef} muted controls autoPlay type={'video/mp4'.toString()} src={videoURL}></video>
-    <div>{}</div>
+    <video ref={videoRef} muted controls autoPlay type={'video/mp4'.toString()} src={post.videoURL}></video>
+    <div className='uploader-info'>
+     <div className='uploader-name'>@{post.user}</div>
+     <div className='uploader-description'>{post.description}</div>
+    </div>
     </div>
   );
 }
