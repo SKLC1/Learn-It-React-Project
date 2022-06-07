@@ -52,9 +52,9 @@ function UploadVideo() {
     console.log(docRef.id)
   }
   return ( 
-    <div>
+    <div className="flexCol">
       <h2>Upload your Video</h2>
-      <form onSubmit={formHandler}>
+      <form onSubmit={formHandler} className="flexCol">
         <label>Category:</label>
        <input type='text' onChange={(e)=>setCategory(e.target.value)}/>
         <label>SubCategory:</label>
