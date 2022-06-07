@@ -23,8 +23,13 @@
   align-items: center;
 }
 .user-video{
-  width: 20%;
+  width: 100%;
   max-height: 15rem;
- /* max-width: 15rem; */
 }
 
+@media (min-width: 600px){
+  .user-videos-cont{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+  }
+}
