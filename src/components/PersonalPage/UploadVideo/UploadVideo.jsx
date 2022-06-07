@@ -14,7 +14,7 @@ function UploadVideo() {
   const currentUser = useContext(UserContext)
   function formHandler(e){
     e.preventDefault();
-    const file = e.target[2].files[0];
+    const file = e.target[3].files[0];
     uploadFiles(file)
   }
 

@@ -25,9 +25,8 @@ function UserVideos() {
   }
   function insertUserVideos(){
     const userVideosArr = allVideosData.filter(post=>post.user == currentUser.displayName)
-    console.log(userVideosArr)
     return userVideosArr.map(post=>{
-      return <div>
+      return <div key={post.id} className='user-video-outer'>
        <video
        key={post.id}
        muted className='user-video' 

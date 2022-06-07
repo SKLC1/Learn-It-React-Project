@@ -6,6 +6,7 @@
   width: 100%;
   height: 100%;
   scroll-snap-align: start;
+  border-radius: 25px;
 }
 .uploader-info{
   position: absolute;
@@ -18,8 +19,11 @@
 .uploader-name{
   font-weight: 600;
   font-size: 1.2rem;
-
 }
 .uploader-description{
   font-size: 1rem;
+}
+.like{
+  width: 400px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }

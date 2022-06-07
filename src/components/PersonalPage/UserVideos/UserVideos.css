@@ -1,5 +1,4 @@
 
-
 .user-container{
   width: 100%;
   display: flex;
@@ -25,11 +24,21 @@
 .user-video{
   width: 100%;
   max-height: 15rem;
+  border-radius: 15px;
+}
+.user-video-outer{
+  max-height: 15rem;
+  margin: 0.4rem;
 }
 
 @media (min-width: 600px){
   .user-videos-cont{
     display: grid;
     grid-template-columns: repeat(6,1fr);
+  }
+  .user-video{
+    width: 100%;
+    height: 30rem;
+    border-radius: 15px;
   }
 }

@@ -17,7 +17,7 @@ function App() {
          <Route path="/subcategory:chosenSubCategory" element={<SubCategory/>}/>
          <Route path="/login" element={<Login/>}/> {/* if !account, else show signup */}
          <Route path="/signup" element={<SignUp/>}/> 
-         <Route path="/accountPage" element={<AccountPage/>}/>
+         <Route path="/accountPage/:user" element={<AccountPage/>}/>
          <Route path="/upload" element={<UploadVideo/>}/>
         </Routes>
       </Router>
