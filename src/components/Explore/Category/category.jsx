@@ -13,6 +13,7 @@ function Category(props) {
   const { chosenCategory } = useParams();
   const videoCollectionRef = collection(db, 'Videos')
   const [isLoading,setIsLoading] = useState(true)
+  const [searched,setSearched] = useState("")
 
 
   useEffect(()=>{
@@ -27,10 +28,11 @@ function Category(props) {
     const data = await getDocs(videoCollectionRef)
     setSubCategoriesArr(data.docs.map((doc)=>({...doc.data(), id: doc.id})))
   }
-  function insertSubcategories(){
+  function insertSubcategories(value){
     const filterSubCategoriesArr = [];
      subCategoriesArr.forEach(el => {
-       if(!filterSubCategoriesArr.includes(el.subCategory)&&(el.category === chosenCategory)) {
+       if(!filterSubCategoriesArr.includes(el.subCategory)&&(el.category === chosenCategory)
+       &&(el.subCategory.toLowerCase().includes(searched.toLowerCase()))) {
          filterSubCategoriesArr.push(el.subCategory)
         }
      })
@@ -39,12 +41,16 @@ function Category(props) {
           {subcategory}</div></Link>
     })
   }
-  
-
+  function handleSearch(value){
+    setSearched(value)
+  }
   return ( 
     <>
     <Header/>
-      <div>{chosenCategory}</div>
+       <div className="flexCol">
+        <div>{chosenCategory}</div>
+        <input placeholder="Search" onChange={(e)=>handleSearch(e.target.value)}></input>
+       </div>
       <div className="subcategory-container">
         {isLoading?<div className="lds-dual-ring"></div>:insertSubcategories()}
         </div>
