@@ -11,6 +11,8 @@ function ExplorePage() {
   const [categoriesArr, setCategoriesArr] = useState([])
   const dataCollectionRef = collection(db, 'Videos')
   const [isLoading,setIsLoading] = useState(true)
+  const [searched,setSearched] = useState("")
+
 
   useEffect(()=>{
     getCategoryData()
@@ -28,16 +30,21 @@ function ExplorePage() {
   function insertCategories(){
     const filterCategoriesArr = [];
     categoriesArr.forEach(el => {
-      if(!filterCategoriesArr.includes(el.category)) filterCategoriesArr.push(el.category)
+      if(!filterCategoriesArr.includes(el.category)&&(el.category.toLowerCase().includes(searched.toLowerCase())))
+       filterCategoriesArr.push(el.category)
     })
     return filterCategoriesArr.map((category,idx)=>{
       return <Link key={idx} to={`/category${category}`}><div className='category bn632-hover bn22'>{category}</div></Link>
     })
   }
+  function handleSearch(value){
+    setSearched(value)
+  }
   return ( 
     <>
       <Header/>
       <div className="flexCol">
+      <input placeholder="Search" onChange={(e)=>handleSearch(e.target.value)}></input>
         <h3>Our Top Picks</h3>
          <div className="divider"></div>
          this will be top picks cont
