@@ -1,15 +1,18 @@
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { app, authentication } from "../../../firebase/firebase";
 import { UserContext } from "../../UserContext/UserContext";
+
 import './login.css'
 
 function Login() {
   const currentUser = useContext(UserContext)
   const provider = new GoogleAuthProvider();
-  function googleLogin(){
-    signInWithPopup(authentication,provider)
+  const navigate = useNavigate();
+  async function googleLogin(){
+    await signInWithPopup(authentication,provider)
+    navigate("/", { replace: true })
   }
   return ( 
     <div>
