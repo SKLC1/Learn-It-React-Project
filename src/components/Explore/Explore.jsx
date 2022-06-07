@@ -41,6 +41,12 @@ function ExplorePage() {
         <h3>Our Top Picks</h3>
          <div className="divider"></div>
          this will be top picks cont
+         <div className="top-picks-container">
+         <div className='chosen category bn632-hover bn22'></div>
+         <div className='chosen category bn632-hover bn22'></div>
+         <div className='chosen category bn632-hover bn22'></div>
+         <div className='chosen category bn632-hover bn22'></div>
+         </div>
         <div className="divider"></div>
         <h4>Find More</h4>
          <div className={isLoading?"flex":"categories-container"}>

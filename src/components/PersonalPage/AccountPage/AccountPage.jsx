@@ -1,13 +1,15 @@
 import { getAuth } from "firebase/auth";
-import { Link } from "react-router-dom";
 import { app } from "../../../firebase/firebase";
+import UserVideos from "../UserVideos/UserVideos";
 
 function AccountPage() {
   return ( 
     <div>
       <button onClick={()=>getAuth().signOut()}>SignOut</button>
-      this is account page
-      <Link to='/upload'>Upload here</Link>
+      <div className="flexCol">
+      <UserVideos/>
+      
+      </div>
     </div>
    );
 }

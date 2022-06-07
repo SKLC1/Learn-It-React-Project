@@ -12,7 +12,7 @@ function Video({videoURL}) {
 
   return ( 
     <video ref={videoRef} muted className='video' controls autoPlay type={'video/mp4'.toString()} src={videoURL}></video>
-    );
+  );
 }
 
 export default Video;

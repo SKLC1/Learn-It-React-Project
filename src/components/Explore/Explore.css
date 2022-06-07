@@ -11,6 +11,15 @@
   width: 80%;
   max-width: 800px;
 }
+.chosen{
+  height: 2rem;
+}
+.top-picks-container{
+  display: grid;
+  grid-template-columns:  repeat(2, 1fr);
+  width: 80%;
+  max-width: 800px;
+}
 
 .category{
   width: 90%;
