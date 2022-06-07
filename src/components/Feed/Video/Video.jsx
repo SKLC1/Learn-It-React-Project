@@ -10,10 +10,13 @@ function Video({post}) {
   const [liked,setLiked] = useState(false)
   const videoRef = useRef(null)
   const currentUser = useContext(UserContext)
+  const likedCounter = post.likes.length
    
   useEffect(()=>{
-    if(post.likes.includes(currentUser.displayName))
-    setLiked(true)
+    if (currentUser) { 
+      if(post.likes.includes(currentUser.displayName))
+      setLiked(true)
+    }
   },[])
    function onVideoPress(){
      playing?videoRef.current.play():videoRef.current.pause();
@@ -29,7 +32,7 @@ function Video({post}) {
        console.log(e)
      }
      function handleLocalLike(){
-      setLiked(true)
+       setLiked(true)
      }
   } 
 
@@ -38,7 +41,7 @@ function Video({post}) {
     <video ref={videoRef} muted controls autoPlay type={'video/mp4'.toString()} src={post.videoURL}></video>
     <div className='uploader-info'>
      <i className={`fa-solid fa-heart like ${liked && "is-liked"}`} onClick={handleLike}></i>
-     <div className='uploader-name'>{post.likes.length}</div>
+     <div className='uploader-name'>{likedCounter}</div>
      <div className='uploader-name'>@{post.user}</div>
      <div className='uploader-description'>{post.description}</div>
     </div>
