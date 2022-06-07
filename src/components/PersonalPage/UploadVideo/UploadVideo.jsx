@@ -48,6 +48,7 @@ function UploadVideo() {
       user: uploadingUser, 
       videoURL: fileUrl,
       description: description,
+      likes: [],
     } 
     const docRef = await addDoc(collectionRef, payload)
     console.log(docRef.id)
