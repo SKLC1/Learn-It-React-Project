@@ -8,7 +8,6 @@ function AccountPage() {
       <button onClick={()=>getAuth().signOut()}>SignOut</button>
       <div className="flexCol">
       <UserVideos/>
-      
       </div>
     </div>
    );

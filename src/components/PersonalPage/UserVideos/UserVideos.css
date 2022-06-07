@@ -13,6 +13,18 @@
 .user-name{
   text-align: center;
 }
-.user-video{
- width: 20%;
+.user-videos-cont{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
 }
+.user-videos-cont > div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-video{
+  width: 20%;
+  max-height: 15rem;
+ /* max-width: 15rem; */
+}
+

@@ -27,9 +27,13 @@ function UserVideos() {
     const userVideosArr = allVideosData.filter(post=>post.user == currentUser.displayName)
     console.log(userVideosArr)
     return userVideosArr.map(post=>{
-      return <video
-       muted className='user-video' loop autoPlay type={'video/mp4'.toString()} src={post.videoURL}>
+      return <div>
+       <video
+       key={post.id}
+       muted className='user-video' 
+       loop autoPlay type={'video/mp4'.toString()} src={post.videoURL}>
        </video>
+      </div>
     })
   }
   if (currentUser) { 
@@ -40,7 +44,7 @@ function UserVideos() {
         <div className="user-name">{currentUser.displayName}</div>
         <Link to='/upload'>Upload here</Link>
       </div>
-      <div className="user-videos">
+      <div className="user-videos-cont">
         {insertUserVideos()}
       </div>
     </div>
