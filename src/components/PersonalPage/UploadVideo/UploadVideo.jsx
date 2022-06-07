@@ -4,6 +4,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useContext, useEffect, useState } from "react";
 import { app, db, storage } from "../../../firebase/firebase";
 import { UserContext } from "../../UserContext/UserContext";
+import Header from "../../Utility/Header";
 
 function UploadVideo() {
   const [progress, setProgress] = useState(0)
@@ -52,6 +53,8 @@ function UploadVideo() {
     console.log(docRef.id)
   }
   return ( 
+    <>
+      <Header/>
     <div className="flexCol">
       <h2>Upload your Video</h2>
       <form onSubmit={formHandler} className="flexCol">
@@ -65,8 +68,8 @@ function UploadVideo() {
        <button type="submit">Upload</button>
       </form>
       <h3> Uploaded {progress}%</h3>
-
     </div>
+    </>
    )
 }
 

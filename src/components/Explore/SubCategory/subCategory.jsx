@@ -32,6 +32,7 @@ function SubCategory(props) {
       }
     });
     return relevantVideosArr.map((post,idx)=>{
+      if(post.videoURL!=="")
       return <Video post={post} videoURL={post.videoURL} key={idx}/>
     })
   }
