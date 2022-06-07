@@ -27,7 +27,9 @@ function UserVideos() {
     const userVideosArr = allVideosData.filter(post=>post.user == currentUser.displayName)
     console.log(userVideosArr)
     return userVideosArr.map(post=>{
-      return <video muted className='user-video' controls autoPlay type={'video/mp4'.toString()} src={post.videoURL}></video>
+      return <video
+       muted className='user-video' loop autoPlay type={'video/mp4'.toString()} src={post.videoURL}>
+       </video>
     })
   }
   if (currentUser) { 

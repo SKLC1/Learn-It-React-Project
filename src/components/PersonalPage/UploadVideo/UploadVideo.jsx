@@ -1,7 +1,7 @@
 import { async } from "@firebase/util";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { app, db, storage } from "../../../firebase/firebase";
 import { UserContext } from "../../UserContext/UserContext";
 
@@ -30,10 +30,13 @@ function UploadVideo() {
         const url = await getDownloadURL(uploadTask.snapshot.ref)
         setFileUrl(url)
         console.log(fileUrl)
-        addToDataBase()
       })
       console.log(fileUrl)
   }
+  useEffect(()=>{
+    addToDataBase()
+  },[fileUrl])
+  
   async function addToDataBase() {
     const uploadingUser = currentUser.displayName;
     const collectionRef = collection(db,'Videos');
