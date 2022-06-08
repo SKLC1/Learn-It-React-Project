@@ -11,6 +11,11 @@
   width: 80%;
   max-width: 800px;
 }
+.categories-container a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .chosen{
   width: 90%;
   height: 90%;
