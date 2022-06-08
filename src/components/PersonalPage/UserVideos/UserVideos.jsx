@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../../../firebase/firebase";
 import { UserContext } from "../../UserContext/UserContext";
@@ -9,7 +9,6 @@ function UserVideos() {
   const currentUser = useContext(UserContext)
   const [allVideosData,setAllVideosData] = useState([])
   const videoCollectionRef = collection(db, 'Videos')
-
   useEffect(()=>{
     getVideos()
   },[])
@@ -27,14 +26,16 @@ function UserVideos() {
     const userVideosArr = allVideosData.filter(post=>post.user == currentUser.displayName)
     return userVideosArr.map(post=>{
       return <div key={post.id} className='user-video-outer'>
-       <video
+       <video onMouseEnter={(e)=>e.target.play()}
+       onMouseLeave={(e)=>e.target.pause()}
        key={post.id}
        muted className='user-video' 
-       loop autoPlay type={'video/mp4'.toString()} src={post.videoURL}>
+       loop type={'video/mp4'.toString()} src={post.videoURL}>
        </video>
       </div>
     })
   }
+
   if (currentUser) { 
     return ( 
       <div className="user-container">    
