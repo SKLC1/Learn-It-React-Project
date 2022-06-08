@@ -27,11 +27,23 @@
   border-radius: 15px;
 }
 .user-video-outer{
+  position: relative;
   max-height: 15rem;
   margin: 0.4rem;
 }
+.videoCheckbox{
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+.edit-mode{
+  border: grey solid 2px;
+}
+.chosen-to-delete{
+  border: rgb(29, 118, 219) solid 2px;
+}
 
-@media (min-width: 600px){
+@media (min-width: 930px){
   .user-videos-cont{
     display: grid;
     grid-template-columns: repeat(6,1fr);
