@@ -9,7 +9,7 @@ function AccountPage() {
     <div>
       <Header/>
       <Link to="/">
-      <button className="button-28 standard-btn" 
+      <button className="button-28 standard-btn sign-out-btn" 
       onClick={()=>getAuth().signOut()}>SignOut</button>
       </Link>
       <div className="flexCol">
