@@ -92,11 +92,13 @@ function UserVideos() {
       <div>
         <img className="user-photo" src={currentUser.photoURL}></img>
         <div className="user-name">{currentUser.displayName}</div>
-        <Link to='/upload'>Upload here</Link>
       </div>
-        <button onClick={()=>handleEdit()}>Edit</button>
+      <div className="flex">
+        <Link to='/upload' className="button-28 standard-btn">Upload</Link>
+        <button className="button-28 standard-btn" onClick={()=>handleEdit()}>Edit</button>
+      </div>
         {editMode && insertEditMode()}
-        {editMode && <button onClick={()=>handleDelete()}>Delete Selected Videos</button>}
+        {editMode && <button className="button-28 standard-btn" onClick={()=>handleDelete()}>Delete Selected Videos</button>}
       <div className="user-videos-cont">
         {editMode?highlightSelected():insertUserVideos()}
       </div>

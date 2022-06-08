@@ -52,7 +52,7 @@ a:active { text-decoration: none; }
   font-weight: 600;
   line-height: normal;
   margin: 0;
-  min-height: 60px;
+  /* min-height: 60px; */
   min-width: 0;
   outline: none;
   padding: 16px 24px;
@@ -62,7 +62,6 @@ a:active { text-decoration: none; }
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 100%;
   will-change: transform;
 }
 
@@ -115,4 +114,16 @@ input{
   border-radius: 5px;
   border: none;
   box-shadow: grey 1px 1px 8px;
+}
+input:focus-visible{
+  outline: -webkit-focus-ring-color auto 1px;
+    outline-color: #28d782;
+    outline-style: auto;
+    outline-width: 5px;
+}
+.standard-btn{
+  width: fit-content;
+  min-height: 1rem;
+  /* padding: 0.1rem 0.1rem; */
+  margin: 5px;
 }
