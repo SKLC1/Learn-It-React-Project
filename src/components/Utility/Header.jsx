@@ -23,7 +23,7 @@ function Header() {
           <Link to="/"><img src='./assets/logoSvg.png'/></Link>
         {/* <img src="recapp_logo.svg" alt="recapp_logo"/> */}
         </div>
-        {currentUser?userInfo(currentUser):<div><Link to='/login'>Login/account page</Link></div>}
+        {currentUser?userInfo(currentUser):<div className='login-btn'><Link to='/login'>Login</Link></div>}
       </div>
     </div>
    );

@@ -19,3 +19,14 @@
   width: 20%;
   border-radius: 50%;
 }
+.login-btn{
+  color: #fff;
+  font-weight: 500;
+  border: 3px #fff solid;
+  border-radius: 25px;
+  padding: 0.1rem 0.4rem;
+}
+Link:link { text-decoration: none; }
+Link:visited { text-decoration: none; }
+Link:hover { text-decoration: none; }
+Link:active { text-decoration: none; }
