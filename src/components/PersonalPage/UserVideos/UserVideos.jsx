@@ -84,6 +84,7 @@ function UserVideos() {
       const docRef = doc(db,"Videos",id)
       await deleteDoc(docRef)
     })
+    getVideos()
   }
   if (currentUser) { 
     return ( 
