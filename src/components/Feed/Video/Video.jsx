@@ -40,10 +40,15 @@ function Video({post}) {
       updateDoc(docRef,{likes: newLikedCount}) 
      } 
   } 
-
+  let options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0,
+  }
   return ( 
-    <div className='video' >
-    <video ref={videoRef} muted controls autoPlay type={'video/mp4'.toString()} src={post.videoURL}></video>
+    <div className='video' id={post.id}>
+    <video ref={videoRef} muted controls className='video-player'
+    autoPlay="autoplay" type={'video/mp4'.toString()} src={post.videoURL}></video>
     <div className='uploader-info'>
      <i className={`fa-solid fa-heart like ${liked && "is-liked"}`} onClick={handleLike}></i>
      <div className='uploader-name'>{likedCounter}</div>

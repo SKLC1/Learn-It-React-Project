@@ -50,6 +50,7 @@ function Category(props) {
        <div className="flexCol">
         <div>{chosenCategory}</div>
         <input placeholder="Search" onChange={(e)=>handleSearch(e.target.value)}></input>
+        <div>{`These are all the ${chosenCategory} sub-categories`}</div>
        </div>
       <div className="subcategory-container">
         {isLoading?<div className="lds-dual-ring"></div>:insertSubcategories()}
@@ -58,14 +59,3 @@ function Category(props) {
    );
 }
 export default Category
-
-// async function getSubcategoryData(){
-//   const data = await getDocs(videoCollectionRef)
-//   setCategoriesData(data.docs.map((doc)=>({...doc.data(), id: doc.id})))
-//   const newSubCategoriesArr = categoriesData.filter(post=>{
-//     if(post.category === chosenCategory){
-//       return post
-//     }
-//   })
-//   setSubCategoriesArr(newSubCategoriesArr)
-// }

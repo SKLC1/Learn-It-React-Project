@@ -1,16 +1,24 @@
 
-
-
+.feed-container{
+  background-color: black;
+}
 .video{
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  width: 90%;
-  height: 80%;
+  width: 100%;
+  height: 100vh;
   scroll-snap-align: start;
-  border-radius: 25px;
+}
+.video-player{
+  border-radius: 15px;
+  width: 100%;
 }
 .uploader-info{
   position: absolute;
-  bottom:5%;
+  bottom:12%;
   left:1%;
   text-align: left;
   color: #fff;
