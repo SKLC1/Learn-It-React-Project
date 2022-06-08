@@ -39,7 +39,7 @@
 .edit-mode{
   border: grey solid 2px;
 }
-.chosen-to-delete{
+.highlight{
   border: rgb(29, 118, 219) solid 2px;
 }
 
