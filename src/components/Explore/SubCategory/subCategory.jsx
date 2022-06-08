@@ -7,7 +7,6 @@ import { db } from "../../../firebase/firebase";
 import './subCategories.css'
 
 
-
 function SubCategory(props) {
   const { chosenSubCategory } = useParams();
   const [videosData,setVideosData] = useState([])
@@ -31,7 +30,10 @@ function SubCategory(props) {
         relevantVideosArr.push(post)
       }
     });
-    return relevantVideosArr.map((post,idx)=>{
+    const sortedVideosArr = relevantVideosArr.sort((a, b)=>{
+      return b.likes.length - a.likes.length
+    })
+    return sortedVideosArr.map((post,idx)=>{
       if(post.videoURL!=="")
       return <Video post={post} videoURL={post.videoURL} key={idx}/>
     })

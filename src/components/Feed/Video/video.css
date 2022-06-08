@@ -18,11 +18,14 @@
 }
 .uploader-info{
   position: absolute;
-  bottom:12%;
+  bottom: 20%;
   left:1%;
   text-align: left;
   color: #fff;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+.uploader-info > *{
+  margin: 0.4rem;
 }
 .uploader-name{
   font-weight: 600;
@@ -32,7 +35,6 @@
   font-size: 1rem;
 }
 .like{
-  width: 400px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
 }
 .is-liked{

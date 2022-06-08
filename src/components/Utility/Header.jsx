@@ -20,7 +20,7 @@ function Header() {
     <div>
       <div className="header-cont">
         <div>
-          <Link to="/">logo</Link>
+          <Link to="/"><img src='./assets/logoSvg.png'/></Link>
         {/* <img src="recapp_logo.svg" alt="recapp_logo"/> */}
         </div>
         {currentUser?userInfo(currentUser):<div><Link to='/login'>Login/account page</Link></div>}

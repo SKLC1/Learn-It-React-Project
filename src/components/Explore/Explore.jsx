@@ -49,10 +49,23 @@ function ExplorePage() {
          <div className="divider"></div>
          this will be top picks cont
          <div className="top-picks-container">
-         <div className='chosen category bn632-hover bn22'></div>
-         <div className='chosen category bn632-hover bn22'></div>
-         <div className='chosen category bn632-hover bn22'></div>
-         <div className='chosen category bn632-hover bn22'></div>
+         <div className='chosen flexCol'>
+           <h4>Math is Easy</h4>
+           <img className="chosen-image" src="https://img.freepik.com/free-vector/illustration-training-office-staff-increase-sales-skills-team-thinking-brainstorming-analytics-company-information-modern-design-flat-style-illustration-web-page_126608-537.jpg"/>
+          </div>
+         <div className='chosen flexCol'>
+           <h4>Programming With JavaScript</h4>
+           <img className="chosen-image" src="https://highbrook.media/abd/wp-content/gallery/blog-posts//shutterstock_1045282858.png"/>
+          </div>
+         <div className='chosen flexCol'>
+           <h4> Recruiting & HR </h4>
+           <img className="chosen-image" src="https://media.istockphoto.com/vectors/secretary-receptionist-office-worker-character-working-vector-flat-vector-id1173450044?k=20&m=1173450044&s=612x612&w=0&h=r1DaEmfP7KZ80bnHAJjJJKh3nYMHoGqaLWPyvIUXhHo="/>
+          </div>
+         <div className='chosen flexCol'>
+           <h4>Environmental Design</h4>
+           <img className="chosen-image" src="https://cdn.dribbble.com/users/29073/screenshots/2812258/bbva2-styletest.jpg"/>
+          </div>
+  
          </div>
         <div className="divider"></div>
         <h4>Find More</h4>

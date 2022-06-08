@@ -42,6 +42,7 @@ function UploadVideo() {
   async function addToDataBase() {
     const uploadingUser = currentUser.displayName;
     const collectionRef = collection(db,'Videos');
+    let today = new Date();
     const payload = {
       category: category, 
       subCategory: subCategory, 
@@ -49,11 +50,13 @@ function UploadVideo() {
       videoURL: fileUrl,
       description: description,
       likes: [],
-      comments: [],
+      comments: ['empty'],
+      date: today.getFullYear()+'.'+(today.getMonth()+1)+today.getDate(),
     } 
     const docRef = await addDoc(collectionRef, payload)
     console.log(docRef.id)
   }
+
   return ( 
     <>
       <Header/>
