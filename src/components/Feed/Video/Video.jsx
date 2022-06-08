@@ -53,7 +53,7 @@ function Video({post}) {
     <video ref={videoRef} muted controls className='video-player'
     autoPlay="autoplay" type={'video/mp4'.toString()} src={post.videoURL}></video>
     <div className='uploader-info'>
-      <div className='flexCol'>
+      <div className='flexCol like-cont'>
      <i className={`fa-solid fa-heart  fa-2x like ${liked && "is-liked"}`} onClick={handleLike}></i>
      <div className='uploader-name'>{liked?likedCounter+1:likedCounter}</div>
       </div>
