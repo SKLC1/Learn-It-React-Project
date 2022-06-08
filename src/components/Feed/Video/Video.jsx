@@ -52,9 +52,11 @@ function Video({post}) {
     <div className='video' id={post.id}>
     <video ref={videoRef} muted controls className='video-player'
     autoPlay="autoplay" type={'video/mp4'.toString()} src={post.videoURL}></video>
-    <div className='uploader-info flexCol'>
+    <div className='uploader-info'>
+      <div className='flexCol'>
      <i className={`fa-solid fa-heart  fa-2x like ${liked && "is-liked"}`} onClick={handleLike}></i>
      <div className='uploader-name'>{liked?likedCounter+1:likedCounter}</div>
+      </div>
      <div className='uploader-name'>@{post.user}</div>
      <div className='uploader-description'>{post.description}</div>
     </div>
