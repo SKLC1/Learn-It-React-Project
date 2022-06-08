@@ -17,20 +17,24 @@ function Video({post}) {
       if(post.likes.includes(currentUser.displayName))
       setLiked(true)
     }
-  },[])
+    },[])
    function onVideoPress(){
      playing?videoRef.current.play():videoRef.current.pause();
      setPlaying(!playing)
    }
    async function handleLike(){
      const docRef = doc(db,"Videos",post.id)
-     if(!post.likes.includes(currentUser.displayName))
-     try{
-       updateDoc(docRef,{likes: [...post.likes,currentUser.displayName]}) //async
-       handleLocalLike()
-     } catch(e) {
-       console.log(e)
-     }
+     if(!post.likes.includes(currentUser.displayName)){
+       
+       try{
+         updateDoc(docRef,{likes: [...post.likes,currentUser.displayName]}) //async
+         handleLocalLike()
+        } catch(e) {
+          console.log(e)
+        }
+      } else {
+        handleLocalLike()
+      }
      function handleLocalLike(){
        setLiked(!liked)
      }
@@ -40,11 +44,7 @@ function Video({post}) {
       updateDoc(docRef,{likes: newLikedCount}) 
      } 
   } 
-  let options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0,
-  }
+
   return ( 
     <div className='video' id={post.id}>
     <video ref={videoRef} muted controls className='video-player'

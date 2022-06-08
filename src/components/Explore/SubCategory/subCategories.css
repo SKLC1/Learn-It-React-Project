@@ -32,9 +32,10 @@ body{
   width: 100%;
   max-width: 400px;
   scroll-snap-type: y mandatory;
-  background-color: #fff;
+  background-color: black;
 }
 .feed-container{
+  background-color: black;
   height: 100vh;
   display: flex;
   align-items: center;
