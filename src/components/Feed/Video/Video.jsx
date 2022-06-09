@@ -9,6 +9,7 @@ import './video.css'
 function Video({post}) {
   const [playing,setPlaying] = useState(false)
   const [liked,setLiked] = useState(false)
+  const [showComments,setShowComments] = useState(false)
   const navigate = useNavigate();
   const videoRef = useRef(null)
   const currentUser = useContext(UserContext)
