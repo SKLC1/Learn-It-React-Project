@@ -4,6 +4,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../../firebase/firebase';
 import { UserContext } from '../../UserContext/UserContext';
+import Comments from '../Comments/Comments';
 import './video.css'
 
 function Video({post}) {
@@ -50,18 +51,25 @@ function Video({post}) {
   } 
 
   return ( 
+    <>
     <div className='video' id={post.id}>
     <video ref={videoRef} muted controls className='video-player'
     autoPlay="autoplay" type={'video/mp4'.toString()} src={post.videoURL}></video>
+    {showComments && <Comments className="comment-cont" post={post}/>}
     <div className='uploader-info'>
       <div className='flexCol like-cont'>
      <i className={`fa-solid fa-heart  fa-2x like ${liked && "is-liked"}`} onClick={handleLike}></i>
      <div className='uploader-name'>{liked?likedCounter+1:likedCounter}</div>
       </div>
+      <div className='flexCol like-cont'>
+     <i class="fa-solid fa-comment-dots fa-2x" onClick={()=>setShowComments(!showComments)}></i>
+     <div className='uploader-name'>{post.comments.length}</div>
+      </div>
      <div className='uploader-name'>@{post.user}</div>
      <div className='uploader-description'>{post.description}</div>
     </div>
     </div>
+    </>
   );
 }
 

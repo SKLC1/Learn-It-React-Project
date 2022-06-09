@@ -133,3 +133,10 @@ input:focus-visible{
   width: 4rem;
   padding: 0.3rem;
 }
+.comments-cont{
+  position: absolute;
+  width: 90%;
+  height: 70vh;
+  background-color: #fff;
+  border-radius: 15px;
+}

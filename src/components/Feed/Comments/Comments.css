@@ -1,0 +1,22 @@
+
+
+.comments-list{
+  position: absolute;
+}
+.comments-list div{
+  color: greenyellow;
+  /* position: absolute; */
+}
+.divide-comment-cont{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-avatar-cont{
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  margin: 0.5rem;
+}
