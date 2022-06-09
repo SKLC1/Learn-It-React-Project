@@ -10,7 +10,7 @@ import './video.css'
 function Video({post}) {
   const [playing,setPlaying] = useState(false)
   const [liked,setLiked] = useState(false)
-  const [likedCounter,setLikedCounter] = useState(post.likes.length)
+  const [likedCounter,setLikedCounter] = useState(post.likes.length+1)
   const [showComments,setShowComments] = useState(false)
   const [updateLocalLike,setUpdateLocalLike] = useState(false)
   const navigate = useNavigate();
