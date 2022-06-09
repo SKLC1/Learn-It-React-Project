@@ -10,17 +10,26 @@ import './video.css'
 function Video({post}) {
   const [playing,setPlaying] = useState(false)
   const [liked,setLiked] = useState(false)
+  const [likedCounter,setLikedCounter] = useState(post.likes.length)
   const [showComments,setShowComments] = useState(false)
+  const [updateLocalLike,setUpdateLocalLike] = useState(false)
   const navigate = useNavigate();
   const videoRef = useRef(null)
   const currentUser = useContext(UserContext)
-  const likedCounter = post.likes.length
+  // const likedCounter = post.likes.length
   useEffect(()=>{
     if (currentUser) { 
       if(post.likes.includes(currentUser.displayName))
       setLiked(true)
     }
   },[])
+  useEffect(()=>{
+    if(liked){
+      setLikedCounter(likedCounter+1)
+    } else {
+      setLikedCounter(likedCounter-1)
+    }
+  },[updateLocalLike])
   function onVideoPress(){
      playing?videoRef.current.play():videoRef.current.pause();
      setPlaying(!playing)
@@ -42,6 +51,7 @@ function Video({post}) {
       }
      function handleLocalLike(){
        setLiked(!liked)
+       setUpdateLocalLike(true)
      }
      if (liked){
        console.log(post.id)
@@ -53,7 +63,7 @@ function Video({post}) {
   return ( 
     <>
     <div className='video' id={post.id}>
-    <video ref={videoRef} muted controls className='video-player'
+    <video ref={videoRef} muted loop controls className='video-player'
     autoPlay="autoplay" type={'video/mp4'.toString()} src={post.videoURL}></video>
     {showComments && <Comments className="comment-cont" post={post}/>}
     <div className='uploader-info'>
