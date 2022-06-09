@@ -47,7 +47,8 @@ function ExplorePage() {
       <input placeholder="Search" onChange={(e)=>handleSearch(e.target.value)}></input>
         <h3>Our Top Picks</h3>
          <div className="divider"></div>
-         Let's Learn Something New!
+         <br/>
+         <p className="description">Let's Learn Something New!</p>
          <div className="top-picks-container">
            <Link to='categoryMath'>
          <div className='chosen flexCol'>
