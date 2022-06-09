@@ -14,6 +14,7 @@ function Comments(props) {
 
   function insertComments(){
     return props.post.comments.map((commentObj,idx)=>{
+      if(commentObj !== 'empty')
       return <div key={idx}>
         <div className='comment-avatar-cont'>
         <img src={commentObj.uploaderPhotoURL} className='avatar'></img>
@@ -48,7 +49,7 @@ function Comments(props) {
   return ( 
     <div className="comments-cont">
       <div className="divide-comment-cont">
-      <div className="comment-list">
+      <div className="comment-list">Comments:
        {insertComments()}
        </div>
        <div className="flex">

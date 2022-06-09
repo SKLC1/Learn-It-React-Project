@@ -32,7 +32,7 @@ function Video({post}) {
      const docRef = doc(db,"Videos",post.id)
      if(!post.likes.includes(currentUser.displayName)){
        try{
-         updateDoc(docRef,{likes: [...post.likes,currentUser.displayName]}) //async
+         await updateDoc(docRef,{likes: [...post.likes,currentUser.displayName]}) //async
          handleLocalLike()
         } catch(e) {
           console.log(e)
@@ -59,11 +59,11 @@ function Video({post}) {
     <div className='uploader-info'>
       <div className='flexCol like-cont'>
      <i className={`fa-solid fa-heart  fa-2x like ${liked && "is-liked"}`} onClick={handleLike}></i>
-     <div className='uploader-name'>{liked?likedCounter+1:likedCounter}</div>
+     <div className='uploader-name'>{likedCounter}</div>
       </div>
       <div className='flexCol like-cont'>
      <i class="fa-solid fa-comment-dots fa-2x" onClick={()=>setShowComments(!showComments)}></i>
-     <div className='uploader-name'>{post.comments.length}</div>
+     <div className='uploader-name'>{post.comments.length-1}</div>
       </div>
      <div className='uploader-name'>@{post.user}</div>
      <div className='uploader-description'>{post.description}</div>
