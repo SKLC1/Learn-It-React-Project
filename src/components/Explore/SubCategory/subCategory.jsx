@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Video from "../../Feed/Video/Video";
 import { collection, doc, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
+import Header from "../../Utility/Header";
 import './subCategories.css'
 
 
@@ -41,7 +42,8 @@ function SubCategory(props) {
 
   return ( 
     <div className='explore-page'>
-      <p className="feed-header">{chosenSubCategory} Feed</p> 
+      <Header/>
+      {/* <p className="feed-header">{chosenSubCategory} Feed</p>  */}
       <div className="feed-container">
        <div className="videos-container">
        {isLoading?<div className="lds-dual-ring"></div>:insertVideos()}

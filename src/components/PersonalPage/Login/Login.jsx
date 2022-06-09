@@ -15,13 +15,18 @@ function Login() {
     navigate("/", { replace: true })
   }
   return ( 
-    <div>
+    <div  className='login-page-cont'>
       { currentUser &&<p>logged in as {currentUser.displayName}</p>}
       <div className="flexCol login-cont">
+        <h4>Login</h4>
+        <div className="flex">
         <label>Email:</label>
        <input type="text" />
+        </div>
+        <div className="flex">
         <label>Password:</label>
        <input type="text" />
+        </div>
        <div className="flex">
         <button className="button-28 loginBtn">Login</button>
         <button className="button-28 loginBtn" onClick={googleLogin}>Login With Google</button>
