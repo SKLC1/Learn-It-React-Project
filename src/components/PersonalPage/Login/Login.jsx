@@ -19,14 +19,15 @@ function Login() {
       { currentUser &&<p>logged in as {currentUser.displayName}</p>}
       <div className="flexCol login-cont">
         <h4>Login</h4>
-        <div className="flex">
+       <div className="inputs-cont">
+         
         <label>Email:</label>
        <input type="text" />
-        </div>
-        <div className="flex">
         <label>Password:</label>
        <input type="text" />
-        </div>
+       
+       </div>
+    
        <div className="flex">
         <button className="button-28 loginBtn">Login</button>
         <button className="button-28 loginBtn" onClick={googleLogin}>Login With Google</button>

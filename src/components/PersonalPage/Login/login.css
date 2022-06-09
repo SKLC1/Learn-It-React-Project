@@ -25,3 +25,13 @@
   padding: 0.2rem;
   margin: 0.2rem;
 }
+.inputs-cont{
+  display: grid;
+  grid-template-columns: auto auto;
+  
+}
+.inputs-cont label{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
