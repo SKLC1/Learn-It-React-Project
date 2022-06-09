@@ -123,9 +123,10 @@ input:focus-visible{
 }
 .standard-btn{
   width: fit-content;
+  padding: 0.4rem 0.6rem;
   min-height: 1rem;
-  /* padding: 0.1rem 0.1rem; */
   margin: 5px;
+  
 }
 .sign-out-btn{
   font-size: 0.5rem;

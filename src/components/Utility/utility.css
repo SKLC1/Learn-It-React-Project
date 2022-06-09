@@ -26,6 +26,11 @@
   border-radius: 25px;
   padding: 0.1rem 0.4rem;
 }
+.logo{
+  filter: brightness(0) invert(1);
+}
+
+
 Link:link { text-decoration: none; }
 Link:visited { text-decoration: none; }
 Link:hover { text-decoration: none; }

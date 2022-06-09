@@ -20,10 +20,9 @@ function Header() {
     <div>
       <div className="header-cont">
         <div>
-          <Link to="/"><img src='./assets/logoSvg.png'/></Link>
-        {/* <img src="recapp_logo.svg" alt="recapp_logo"/> */}
+          <Link to="/"><img className='logo' src='/assets/logoSvg.png'/></Link>
         </div>
-        {currentUser?userInfo(currentUser):<div className='login-btn'><Link to='/login'>Login</Link></div>}
+        {currentUser?userInfo(currentUser):<Link to='/login'><div className='login-btn'>Login</div></Link>}
       </div>
     </div>
    );
