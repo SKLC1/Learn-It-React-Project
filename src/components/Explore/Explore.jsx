@@ -47,7 +47,7 @@ function ExplorePage() {
       <input placeholder="Search" onChange={(e)=>handleSearch(e.target.value)}></input>
         <h3>Our Top Picks</h3>
          <div className="divider"></div>
-         this will be top picks cont
+         Let's Learn Something New!
          <div className="top-picks-container">
            <Link to='categoryMath'>
          <div className='chosen flexCol'>
@@ -76,6 +76,7 @@ function ExplorePage() {
   
          </div>
         <div className="divider"></div>
+        <br/>
         <h4>Find More</h4>
          <div className={isLoading?"flex":"categories-container"}>
           {isLoading?<div className="lds-dual-ring flex"></div>:insertCategories()}
