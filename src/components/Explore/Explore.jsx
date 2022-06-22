@@ -62,7 +62,7 @@ function ExplorePage() {
            <img className="chosen-image" src="https://highbrook.media/abd/wp-content/gallery/blog-posts//shutterstock_1045282858.png"/>
           </div>
            </Link>
-           <Link to='/category'>
+           <Link to='//categoryJavaScript'>
          <div className='chosen flexCol'>
            <h4> Recruiting & HR </h4>
            <img className="chosen-image" src="https://media.istockphoto.com/vectors/secretary-receptionist-office-worker-character-working-vector-flat-vector-id1173450044?k=20&m=1173450044&s=612x612&w=0&h=r1DaEmfP7KZ80bnHAJjJJKh3nYMHoGqaLWPyvIUXhHo="/>
